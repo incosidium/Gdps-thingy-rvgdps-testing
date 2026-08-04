@@ -1,15 +1,10 @@
 cmake_minimum_required(VERSION 3.25)
 
-# Include CPM to handle Geode SDK fetching automatically
-include(FetchContent)
-FetchContent_Declare(
-    Geode
-    GIT_REPOSITORY https://github.com/geode-sdk/geode.git
-    GIT_TAG main
-)
-FetchContent_MakeAvailable(Geode)
+include($ENV{GEODE_SDK}/cmake/link.cmake)
 
 project(gdps_demonlist VERSION 1.0.0 LANGUAGES CXX)
+
+find_package(Geode REQUIRED)
 
 add_geode_mod(
     gdps_demonlist
