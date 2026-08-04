@@ -13,9 +13,9 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - name: Android 32-bit
+          - name: Android32
             target: Android32
-          - name: Android 64-bit
+          - name: Android64
             target: Android64
           - name: Windows
             target: Win64
@@ -27,7 +27,6 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Build Mod
-        uses: geode-sdk/build-geode-mod@main
+        uses: geode-sdk/build-geode-mod@v2
         with:
-          sdk: nightly
           target: ${{ matrix.config.target }}
